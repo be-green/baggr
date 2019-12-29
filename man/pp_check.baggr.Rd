@@ -7,12 +7,19 @@
 \method{pp_check}{baggr}(x, type = "dens_overlay", nsamples = 40)
 }
 \arguments{
-\item{x}{Model to check}
+\item{x}{model fit by baggr()}
 
 \item{type}{type of pp_check. For a list see \link{bayesplot::available_ppc}}
 
-\item{nsamples}{number of samples to compare}
+\item{nsamples}{number of samples to draw for the comparison}
 }
 \description{
 Posterior predictive checks for baggr model
+}
+\details{
+Posterior predictive checks are a form of model criticism
+that compares the likelihood based simulations from the posterior
+predictive distribution to observed data. Given a model fit by
+baggr, you can compare kernel density estimates, histograms, and much
+more. For full details, please refer to the bayesplot package.
 }

@@ -8,7 +8,11 @@
   nsamples, ...)
 }
 \arguments{
-\item{x}{model to predict from}
+\item{x}{model fitted via baggr()}
+
+\item{newdata}{new data to use with the fitted model}
+
+\item{allow_new_levels}{whether to allow new groups or levels to be passed to the model.}
 
 \item{...}{other arguments to pass to predict}
 }
@@ -16,7 +20,12 @@
 Predict method for baggr objects
 }
 \details{
-This is currently only implemented for the baggr model
-but could also be extended to the others. Currently a WIP, please
-report bugs.
+Predict responses based on the fitted model. Can be used
+with the data used to fit the model to perform posterior
+predictive checks, or with new data to generate new predictions.
+These will include not only the parameter uncertainty but also
+the variance that comes as a function of the likelihood. Because
+residual error is incorporated, it can be used for visual model
+criticism. For linear predictions (e.g. that only incorporate
+)
 }

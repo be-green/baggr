@@ -7,11 +7,11 @@
 rubin_data(x, newdata = NULL, allow_new_levels = T)
 }
 \arguments{
-\item{x}{model to get data from}
+\item{x}{model fitted via baggr()}
 
-\item{newdata}{new data to use with model}
+\item{newdata}{new data to use with the fitted model}
 
-\item{allow_new_levels}{whether to allow for unobserved groups}
+\item{allow_new_levels}{whether to allow new groups or levels to be passed to the model.}
 }
 \description{
 Make model matrix for the rubin data

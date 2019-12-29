@@ -9,7 +9,7 @@ predict_rubin(x, newdata = NULL, allow_new_levels = T, nsamples, ...)
 \arguments{
 \item{x}{model to predict from}
 
-\item{newdata}{new data to predict, defaults to NULL}
+\item{newdata}{new data to predict not allowed for rubin model (yet)}
 
 \item{allow_new_levels}{allow the predictive of new, unobserved groups}
 
