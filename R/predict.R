@@ -29,7 +29,6 @@ predict.baggr <- function(x, newdata = NULL,
 }
 
 #' Make model matrix for the rubin data
-#' @importFrom reshape2 dcast
 #' @inheritParams predict.baggr
 rubin_data <- function(x, newdata = NULL, allow_new_levels = T) {
   if(x$model != "rubin") {
@@ -85,12 +84,11 @@ predict_rubin <- function(x,
                           allow_new_levels = T,
                           nsamples,
                           ...) {
-
   if(!is.null(newdata)){
     stop("New data not currently allowed for the rubin model. ")
   }
 
-  pred_data <- rubin_data(x, newdata)
+pred_data <- rubin_data(x, newdata)
 
   sigmas <- sapply(x$data$se, rep, times = nsamples)
 
@@ -156,4 +154,3 @@ pp_check.baggr <- function(x, type = "dens_overlay", nsamples = 40) {
   yrep <- predict(x, nsamples = nsamples)
   pp_fun(y, yrep)
 }
-
