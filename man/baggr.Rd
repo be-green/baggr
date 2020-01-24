@@ -9,7 +9,7 @@ baggr(data, model = NULL, pooling = "partial", effect = NULL,
   prior_hypercor = NULL, prior = NULL, ppd = FALSE,
   test_data = NULL, quantiles = seq(0.05, 0.95, 0.1),
   outcome = "outcome", group = "group", treatment = "treatment",
-  warn = TRUE, ...)
+  silence_messages = FALSE, warn = TRUE, ...)
 }
 \arguments{
 \item{data}{data frame with summary or individual level data to meta-analyse}
@@ -62,6 +62,8 @@ it's necessary for individual-level data, for summarised data
 it will be used as labels for groups when displaying results}
 
 \item{treatment}{character; column name in (individual-level) \code{data} with treatment factor;}
+
+\item{silence_messages}{Whether to silence messages about priors}
 
 \item{warn}{print an additional warning if Rhat exceeds 1.05}
 

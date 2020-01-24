@@ -42,3 +42,15 @@ test_that("convert_inputs()", {
   expect_is(convert_inputs(schools, "rubin", test_data = schools[7:8,]), "list")
 })
 
+
+test_that("silent_messages option") {
+  expect_message(baggr(schools,
+                       control = list(adapt_delta = 0.99999)
+                       )
+  )
+  expect_silent(baggr(schools,
+                      control = list(adapt_delta = 0.99999),
+                      refresh = 0,
+                      silence_messages = T)
+  )
+}

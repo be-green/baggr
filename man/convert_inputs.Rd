@@ -5,7 +5,8 @@
 \title{Convert inputs for baggr models}
 \usage{
 convert_inputs(data, model, quantiles, group = "group",
-  outcome = "outcome", treatment = "treatment", test_data = NULL)
+  outcome = "outcome", treatment = "treatment", test_data = NULL,
+  silence_messages = FALSE)
 }
 \arguments{
 \item{data}{`data.frame`` with desired modelling input}
@@ -25,6 +26,8 @@ automatically}
 
 \item{test_data}{same format as \code{data} argument, gets left aside for
 testing purposes (see \link{baggr})}
+
+\item{silence_messages}{Whether to print messages when evaluated}
 }
 \value{
 R structure that's appropriate for use by \link{baggr} Stan models;

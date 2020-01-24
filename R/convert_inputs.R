@@ -15,6 +15,7 @@
 #' @param treatment name of column with treatment variable
 #' @param test_data same format as `data` argument, gets left aside for
 #'                  testing purposes (see [baggr])
+#' @param silence_messages Whether to print messages when evaluated
 #' @return R structure that's appropriate for use by [baggr] Stan models;
 #'         `group_label`, `model` and `n_groups` are included as attributes
 #'         and are necessary for [baggr] to work correctly
@@ -35,7 +36,8 @@ convert_inputs <- function(data,
                            group  = "group",
                            outcome   = "outcome",
                            treatment = "treatment",
-                           test_data = NULL) {
+                           test_data = NULL,
+                           silence_messages = FALSE) {
 
   # check what kind of data is required for the model & what's available
   model_data_types <- c("rubin" = "pool_noctrl_narrow",
@@ -70,10 +72,10 @@ convert_inputs <- function(data,
       check_columns(data, outcome, group, treatment)
   }
   if(is.null(model)) {
-    message("Attempting to infer the correct model for data.")
+    if(!silence_messages) message("Attempting to infer the correct model for data.")
     # we take FIRST MODEL THAT SUITS OUR DATA!
     model <- names(model_data_types)[which(model_data_types == available_data)[1]]
-    message(paste0("Chosen model ", model))
+    if(!silence_messages) message(paste0("Chosen model ", model))
   } else {
     if(!(model %in% names(model_data_types)))
       stop("Unrecognised model, can't format data.")

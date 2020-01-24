@@ -4,7 +4,8 @@
 \alias{prepare_prior}
 \title{Prepare prior values for Stan models in baggr}
 \usage{
-prepare_prior(prior, data, stan_data, model, quantiles = c())
+prepare_prior(prior, data, stan_data, model, quantiles = c(),
+  silence_messages = FALSE)
 }
 \arguments{
 \item{prior}{\code{prior} argument passed from \link{baggr} call}
@@ -17,6 +18,8 @@ this is already pre-obtained through \link{convert_inputs}}
 \item{model}{same as in \link{baggr}}
 
 \item{quantiles}{same as in \link{baggr}}
+
+\item{silence_messages}{same as in \link{baggr}}
 }
 \value{
 A named list with prior values that can be appended to \code{stan_data}
